@@ -8,10 +8,12 @@ end
 require 'backup_config.rb'
 
 puts 'Beginning full backup'
-puts 'Backing up sql dbs'
 
-command = "ruby #{SQL_SCRIPT}"
-system(command)
+if BACKUP_MYSQL == 1
+  puts 'Backing up sql dbs'
+  command = "ruby #{SQL_SCRIPT}"
+  system(command)
+end
 
 puts 'Backup up folders'
 command = "ruby #{FOLDER_SCRIPT}"

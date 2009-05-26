@@ -7,7 +7,7 @@
 #Sub directories for the date will be created within this directory
 BACKUP_LOCATION = "/home/draper/backups"
 
-#For file locations it is recommended to use full paths rather than relative but relative should work fine
+#Unless you rename these files, you should not have to change these variables
 SQL_SCRIPT = 'backup_all_sql_dbs.rb'
 FOLDER_SCRIPT = 'backup_files.rb'
 
@@ -15,6 +15,10 @@ FOLDER_SCRIPT = 'backup_files.rb'
 #The default is 'folderlist.txt' located in the same directory as your backup scripts
 #but this could be placed anywhere you choose
 FOLDER_LIST = 'folderlist.txt'
+
+
+#Change this to 0 if you do not want to backup MySQL
+BACKUP_MYSQL = 1
 
 #DB USER NAME AND PASSWORD
 #In order for the db backup to work properly, this must be a user that can access all the dbs
