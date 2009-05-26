@@ -1,0 +1,3 @@
+/home/draper/
+/var/www
+
