@@ -21,16 +21,12 @@ system(command)
 
 
 
-#if the user wants a tar file, do it now
-
-NOW = Time.now.strftime("%m_%d_%Y")
-NOW_WITH_TIME = Time.now.strftime("%m_%d_%Y_%H_%M_%S")
-FOLDERNAME = "backup_#{NOW}"
-
-#we need to tar up the file
-tar_command = "cd #{BACKUP_LOCATION} && tar -czf #{FOLDERNAME}.tar.gz #{FOLDERNAME} && rm -rf #{FOLDERNAME}"
-puts tar_command
-system(tar_command)
+if CREATE_TAR_FILE == 1
+  #we need to tar up the file
+  tar_command = "cd #{BACKUP_LOCATION} && tar -czf #{FOLDERNAME}.tar.gz #{FOLDERNAME} && rm -rf #{FOLDERNAME}"
+  puts tar_command
+  system(tar_command)
+end
 
 
 

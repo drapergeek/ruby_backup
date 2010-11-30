@@ -13,12 +13,6 @@ File.open(FOLDER_LIST, "r") do |infile|
   end
 end
 
-#Get times starting with current time
-NOW = Time.now.strftime("%m_%d_%Y")
-
-#Make the filename
-FOLDERNAME = "backup_#{NOW}"
-FULL_FOLDER_NAME = "#{BACKUP_LOCATION}/#{FOLDERNAME}"
 
 unless File.directory? FULL_FOLDER_NAME
   command = "mkdir #{FULL_FOLDER_NAME}"
@@ -27,22 +21,11 @@ end
 
 
 folders.each do |f|
-#  temp_f = f
-#  tar_file_name = temp_f.reverse.chop
-#  tar_file_name = temp_f.reverse
-#  tar_file_name = temp_f.split("/").join("_")
-#  tar_file_name.chomp!
-#  tar_file_name = tar_file_name + ".tar.gz"
-#  tar_file_name = FULL_FOLDER_NAME+"/"+tar_file_name
-#  puts "Creating tar file: #{tar_file_name} for folder #{f}"
-#  command = "tar -czf #{tar_file_name} #{f}"
-#  puts command
-#  system(command)
-backup_folder_name = f.gsub("/","_")
-mkdir_command = "mkdir #{FULL_FOLDER_NAME}/#{backup_folder_name}"
-puts mkdir_command
-system(mkdir_command)
-rsync_command = "rsync -av #{f.chomp}/ #{FULL_FOLDER_NAME}/#{backup_folder_name.chomp}/"
-puts rsync_command
-system(rsync_command)
+  backup_folder_name = f.gsub("/","_")
+  mkdir_command = "mkdir #{FULL_FOLDER_NAME}/#{backup_folder_name}"
+  puts mkdir_command
+  system(mkdir_command)
+  rsync_command = "rsync -av #{f.chomp}/ #{FULL_FOLDER_NAME}/#{backup_folder_name.chomp}/"
+  puts rsync_command
+  system(rsync_command)
 end

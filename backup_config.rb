@@ -18,10 +18,23 @@ FOLDER_LIST = 'folderlist.txt'
 
 
 #Change this to 0 if you do not want to backup MySQL
-BACKUP_MYSQL = 2
+BACKUP_MYSQL = 1
 
+
+#Change this to zero if you do not want to tar the backup file after its in a folder
+CREATE_TAR_FILE = 1
 #DB USER NAME AND PASSWORD
 #In order for the db backup to work properly, this must be a user that can access all the dbs
 USERNAME = ''
 PASSWORD = ''
 
+
+
+
+#DO NOT CHANGE ANYTHING PAST THIS LINE!!!
+
+#Name the folder!
+NOW = Time.now.strftime("%m_%d_%Y")
+NOW_WITH_TIME = Time.now.strftime("%m_%d_%Y_%H_%M_%S")
+FOLDERNAME = "backup_#{NOW}"
+FULL_FOLDER_NAME = "#{BACKUP_LOCATION}/#{FOLDERNAME}"
