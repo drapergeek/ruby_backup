@@ -1,3 +1,2 @@
-/home/draper/
-/var/www
-
+/Users/gdraper/Dropbox/code/php
+/Users/gdraper/Dropbox/code/perl
